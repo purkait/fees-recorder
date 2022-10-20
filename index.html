@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Semester Fees</title>
+	<!-- <link rel="stylesheet"
+	href="style.css" type="text/css"> -->
+
+</head>
+<body>
+	<div class="main">
+		<div class="register">
+		<h2>Semester Fees</h2>
+		<form id="register" method="post">
+			<lebel> Name : </lebel>
+			<br>
+			<input type="text" name="fname"
+			id="name" placeholder="Enter your name">
+			<br><br>
+			<lebel> College : </lebel>
+			<br>
+			<input type="text" name="College" 
+			id="name" placeholder="Enter college name">
+			<br><br>
+			<lebel> Sem : </lebel>
+			<br>
+			<input type="text" name="sem" 
+			id="sem" placeholder="Enter Semester">
+			<br><br>
+			<lebel> Fees for the month of : </lebel>
+			<br>
+			<input type="month" name="month"
+			id="name" placeholder="Enter the month">
+			<br><br>
+			<lebel> Payment Mode : </lebel>
+			<br>
+			<input type="text" name="mode"
+			id="name" placeholder="Enter the mode of payment">
+			<br><br>
+			<lebel> Student Phone Number : </lebel>
+			<br>
+			<input type="text" name="number"
+			id="name" placeholder="Enter the phone number">
+			<br><br>
+			<lebel> Guardian Phone Number: </lebel>
+			<br>
+			<input type="text" name="number"
+			id="name" placeholder="Enter the guardian phone number">
+			<br><br>
+			<lebel> Screenshot of the Payment : </lebel>
+			<br>
+			<input type="file" name="file"
+			id="name" placeholder="Enter the Screenshot">
+			<br><br>
+			<input type="button" value="Submit"
+			name="submit" id="submit">
+	</main>
+	<script type="text/javascript">
+		const inputs = document.querySelectorAll("input");
+		const [name, college, sem, feesMonth, paymentMode, mobile, gurdianMobile ] = inputs;
+		const submitBtn = document.querySelector("#submit");
+		submit.addEventListener("click", () => {
+
+			fetch("http://192.168.0.104:3005/api/fees/upload", {
+				method: "POST",
+				headers: {
+      'Content-Type': 'application/json'
+      
+    },
+    cors: 'no-cors',
+				body: JSON.stringify({
+					name: name.value,
+					college: college.value,
+					feesMonth: feesMonth.value,
+					paymentMode: paymentMode.value,
+					mobile: mobile.value,
+					gurdianMobile: gurdianMobile.value,
+					sem: sem.value,
+
+				})
+			})
+		})
+		
+	</script>
+</body>
+</html>
